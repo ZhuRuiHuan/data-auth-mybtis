@@ -14,7 +14,7 @@
 #### 3.实现 IAuthData 接口并注册到spring容器中, 其中getAuthType()为分组名, getDataAuth()为解析权限控制语句时,获取权限数据的方法
 #### 4.在 mybatis.Dao的接口方法上,加上@AuthData,可以以数组方式传入数据分组名称,如果不传则调用所有IAuthData实例的getDataAuth()方法获取数据
 #### 5.在对应的sql标签里,加入权限控制语句:
-##### 例如:
+#####
     getDataAuth() 返回: 
         { "userType": 1 , "orgList": [ "001" , "002" ] , "areaCode" : 1001 , "bol": true }
     
