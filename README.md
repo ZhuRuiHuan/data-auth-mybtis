@@ -33,8 +33,8 @@
 ##### @{} ognl表达式,结果支持基本类型,String,Collection集合;boolean类型会转为1和0,集合类型会转为(value1,value2....)
 #### ognl表达式,就是mybatis,if-test里用的
 
-##### 
-接口实现
+#### 示例代码
+##### 接口实现
 @Component
 public class AuthDataTest implements IAuthData {
 
@@ -58,13 +58,11 @@ public class AuthDataTest implements IAuthData {
         return result;
     }
 }
-#####
-// Dao接口方法
+##### Dao接口方法
 @AuthData({"test"})
 List<Map<String,Object>> queryData();
 
-#####
-// Mapper.xml 中的sql标签
+##### Mapper.xml 中的sql标签
 <select id="queryData" resultType="Map">
 
     SELECT
