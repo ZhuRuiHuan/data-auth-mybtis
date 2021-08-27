@@ -47,14 +47,18 @@ public class AuthDataTest implements IAuthData {
 
     @Override
     public Map<String, Object> getDataAuth() {
+        
+        // 返回
         Map<String,Object> result = new HashMap<>();
+        
+        // 设置参数
         result.put( "userType" , 1 );
         result.put( "areaCode" , "1001" );
         result.put( "bol" , true );
         
-        List<String> list = new ArrayList(2);
+        List list = new ArrayList(2);
         list.add("1");
-        list.add("2");
+        list.add(2);
         result.put("list" , list);
         
         return result;
@@ -72,14 +76,19 @@ List<Map<String,Object>> queryData();
 <!-- Mapper.xml 中的sql标签 -->
 <select id="queryData" resultType="Map">
 
-    SELECT
-        1
+    SELECT 
+        1 
     FROM
         DUAL
     WHERE
         1 = 1
     #( userType == 1 ) [ AND area_code = @{ areaCode } ]
+    <!-- 解释后的sql: AND area_code = 1 -->
+    
     #[ AND is_admin = @{ bol } ]
+    <!-- 解释后的sql: AND is_admin = 1 -->
+    
     #( userType != 1 ) [ AND area_code IN @{ list } ]
+    <!-- 解释后的sql: AND area_code IN ( "1" , 2 ) -->
 </select>
 ```
