@@ -32,9 +32,7 @@
 ##### "[]"包含任意内容,可以包含@{}取值标签
 ##### @{} ognl表达式,结果支持基本类型,String,Collection集合;boolean类型会转为1和0,集合类型会转为(value1,value2....)
 #### ognl表达式,就是mybatis,if-test里用的
-#####
-
-// 接口实现
+##### // 接口实现
 @Component
 public class AuthDataTest implements IAuthData {
 
@@ -77,4 +75,3 @@ List<Map<String,Object>> queryData();
     #[ AND is_admin = @{ bol } ]
     #( userType != 1 ) [ AND area_code IN @{ list } ]
 </select>
-#####
