@@ -37,7 +37,6 @@ getDataAuth() 返回:
 @{ } ognl表达式,结果支持基本类型,String,Collection集合;boolean类型会转为1和0,集合类型会转为(value1,value2....)
 
 ognl表达式,就是mybatis,if-test里用的
-
 ````
 ### 示例代码
 #### 权限数据获取接口
