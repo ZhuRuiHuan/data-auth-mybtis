@@ -1,0 +1,5 @@
+com\gusheng\mybatisplug\DataPermissionApplication.class
+com\gusheng\mybatisplug\plug\DataAuthPlug$BoundSqlSqlSource.class
+com\gusheng\mybatisplug\handler\DataAuthHandler.class
+com\gusheng\mybatisplug\AutoConfigure.class
+com\gusheng\mybatisplug\plug\DataAuthPlug.class
