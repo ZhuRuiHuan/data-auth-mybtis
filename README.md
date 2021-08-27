@@ -69,7 +69,7 @@ List<Map<String,Object>> queryData();
 ```
 #### Mapper文件
 ```
-//Mapper.xml 中的sql标签
+<!-- Mapper.xml 中的sql标签 -->
 <select id="queryData" resultType="Map">
 
     SELECT
