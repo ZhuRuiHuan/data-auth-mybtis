@@ -20,10 +20,14 @@ import com.xuanyue.mybatisplug.handler.DataAuthHandler;
 
 @Intercepts
 ({
- @Signature( type = Executor.class,
-		 	 method = "query", 
-		 	 args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}
-		   )
+	@Signature( type = Executor.class,
+				 method = "query",
+				 args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}
+			   ),
+	@Signature( type = Executor.class,
+				method = "update",
+				args = {MappedStatement.class, Object.class}
+				)
 })
 
 
