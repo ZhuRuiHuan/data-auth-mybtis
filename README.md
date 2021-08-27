@@ -14,7 +14,7 @@
 #### 3.实现 IAuthData 接口并注册到spring容器中, 其中getAuthType()为分组名, getDataAuth()为解析权限控制语句时,获取权限数据的方法
 #### 4.在 mybatis.Dao的接口方法上,加上@AuthData,可以以数组方式传入数据分组名称,如果不传则调用所有IAuthData实例的getDataAuth()方法获取数据
 #### 5.在对应的sql标签里,加入权限控制语句:
-#####
+```
     getDataAuth() 返回: 
         { "userType": 1 , "orgList": [ "001" , "002" ] , "areaCode" : 1001 , "bol": true }
     
@@ -25,7 +25,7 @@
         AND org_id IN ("001","002")
     
     #[ AND status = @{ bol } ] 解释为 AND status = 1
-    
+``` 
 #### 规则
 ##### 标签以#开头,后面衔接"()"或者"[]"
 ##### "()"类似if标签,内容为ognl表达式,最终结果应为boolean类型;可以省略,则默认有效
@@ -33,7 +33,8 @@
 ##### @{} ognl表达式,结果支持基本类型,String,Collection集合;boolean类型会转为1和0,集合类型会转为(value1,value2....)
 #### ognl表达式,就是mybatis,if-test里用的
 
-#### 示例代码
+### 示例代码
+#### 权限数据获取接口
 ```
 //接口实现
 @Component
@@ -60,12 +61,13 @@ public class AuthDataTest implements IAuthData {
     }
 }
 ```
+#### Dao层接口
 ```
 //Dao接口方法
 @AuthData({"test"})
 List<Map<String,Object>> queryData();
 ```
-
+#### Mapper文件
 ```
 //Mapper.xml 中的sql标签
 <select id="queryData" resultType="Map">
