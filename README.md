@@ -34,7 +34,8 @@
 #### ognl表达式,就是mybatis,if-test里用的
 
 #### 示例代码
-##### 接口实现
+#### 接口实现
+#####
 @Component
 public class AuthDataTest implements IAuthData {
 
@@ -58,11 +59,13 @@ public class AuthDataTest implements IAuthData {
         return result;
     }
 }
-##### Dao接口方法
+#### Dao接口方法
+#####
 @AuthData({"test"})
 List<Map<String,Object>> queryData();
 
-##### Mapper.xml 中的sql标签
+#### Mapper.xml 中的sql标签
+#####
 <select id="queryData" resultType="Map">
 
     SELECT
